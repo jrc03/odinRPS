@@ -16,6 +16,7 @@ var computerScore= 0;
 function getComputerChoice(){
     let randomChoice= Math.floor(Math.random() * opciones.length);
     let finalChoice= opciones[randomChoice];
+    console.log("Computer chose: " + finalChoice);
     return finalChoice;
 }
 
@@ -36,28 +37,52 @@ function getPlayerChoice() {
 
 var playButton= document.getElementById("playButton");
 
-playButton.addEventListener("click", playGame());
+playButton.addEventListener("click", playGame);
 
 
 function playRound(playerChoice, computerChoice){
-  if (playerChoice===computerChoice) {
-    console.log("It's a tie!");
-  }else if (
-  (playerChoice==="Piedra" && computerChoice==="Tijeras") || (playerChoice==="Piedra" && computerChoice==="Papel")|| (playerChoice==="Tijeras" && computerChoice==="Papel"))
-    {
-  humanScore++;
-  return "You won, "+ playerChoice+ "beats " + computerChoice;
-
-
-  }else
-  computerScore++;
-    return "You lost, " + computerChoice+ "beats " + playerChoice;
-    
+    if (playerChoice === computerChoice) {
+        console.log("It's a tie!");
+    } else if (
+        (playerChoice === "Piedra" && computerChoice === "Tijeras") ||
+        (playerChoice === "Papel" && computerChoice === "Piedra") ||
+        (playerChoice === "Tijeras" && computerChoice === "Papel")
+    ) {
+        humanScore++;
+        console.log("You won! " + playerChoice + " beats " + computerChoice);
+    } else {
+        computerScore++;
+        console.log("You lost! " + computerChoice + " beats " + playerChoice);
+    }
     }
 
 function playGame(){
-    let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerChoice();
+   
+while(humanScore < 5 || computerScore  < 5){
+
+    let playerChoice= getPlayerChoice();
+    if (playerChoice==null) {
+        continue;
+    }
+    let computerChoice= getComputerChoice();
+playRound(playerChoice, computerChoice);
+console.log("Human Score: " + humanScore);
+console.log("Computer Score: " + computerScore);
+
+}
+        
+  
+
+    if (humanScore === 5) {
+        alert("¡Felicidades! Ganaste el juego con un puntaje de " + humanScore + " a " + computerScore);
+    } else if (computerScore === 5) {
+        alert("La computadora ganó el juego con un puntaje de " + computerScore + " a " + humanScore);
+    }
+
+    // Reiniciar el puntaje para poder jugar otra vez
+    humanScore = 0;
+    computerScore = 0;
+    
     
 
 }
