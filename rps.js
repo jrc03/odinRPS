@@ -9,21 +9,59 @@
 //  hacer un sistema de "score" para ver cuantos puntos tiene cada uno.
 
 var opciones= ["Piedra", "Papel", "Tijeras"];
+var humanScore= 0;
+var computerScore= 0;
+
 
 function getComputerChoice(){
-    let randomChoice= Math.floor(Math.random() * opciones.length + 1);
+    let randomChoice= Math.floor(Math.random() * opciones.length);
     let finalChoice= opciones[randomChoice];
     return finalChoice;
 }
 
-function getPlayerChoice(){
-  
-    return finalPlayerChoice;
+function getPlayerChoice() {
+    let playerChoice = prompt("Piedra, Papel o Tijeras?");
+   
+    if (opciones.includes(playerChoice) && playerChoice ) {
+        console.log("You chose: " + playerChoice);
+        return playerChoice;
+    } else {
+        console.log("Invalid choice. Please choose Piedra, Papel, or Tijeras.");
+        return null;
+    }
+   
+    
 }
 
-let playerChoice= prompt("Piedra, Papel o Tijeras?");
 
-let found= opciones.find( )
+var playButton= document.getElementById("playButton");
 
-let finalPlayerChoice= opciones[playerChoice];
-console.log(finalPlayerChoice);
+playButton.addEventListener("click", playGame());
+
+
+function playRound(playerChoice, computerChoice){
+  if (playerChoice===computerChoice) {
+    console.log("It's a tie!");
+  }else if (
+  (playerChoice==="Piedra" && computerChoice==="Tijeras") || (playerChoice==="Piedra" && computerChoice==="Papel")|| (playerChoice==="Tijeras" && computerChoice==="Papel"))
+    {
+  humanScore++;
+  return "You won, "+ playerChoice+ "beats " + computerChoice;
+
+
+  }else
+  computerScore++;
+    return "You lost, " + computerChoice+ "beats " + playerChoice;
+    
+    }
+
+function playGame(){
+    let computerChoice = getComputerChoice();
+    let playerChoice = getPlayerChoice();
+    
+
+}
+
+
+
+
