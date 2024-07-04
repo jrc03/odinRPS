@@ -9,8 +9,8 @@
 //  hacer un sistema de "score" para ver cuantos puntos tiene cada uno.
 
 var opciones= ["Piedra", "Papel", "Tijeras"];
-var humanScore= 0;
-var computerScore= 0;
+let humanScore= 0;
+let computerScore= 0;
 
 
 function getComputerChoice(){
@@ -21,8 +21,9 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice() {
-    let playerChoice = prompt("Piedra, Papel o Tijeras?");
-   
+    let playerChoiceLow = prompt("Piedra, Papel o Tijeras?").toLowerCase();
+   let playerChoice = playerChoiceLow.charAt(0).toUpperCase() + playerChoiceLow.slice(1);
+
     if (opciones.includes(playerChoice) && playerChoice ) {
         console.log("You chose: " + playerChoice);
         return playerChoice;
@@ -37,7 +38,7 @@ function getPlayerChoice() {
 
 var playButton= document.getElementById("playButton");
 
-playButton.addEventListener("click", playGame);
+
 
 
 function playRound(playerChoice, computerChoice){
@@ -57,8 +58,8 @@ function playRound(playerChoice, computerChoice){
     }
 
 function playGame(){
-   
-while(humanScore < 5 || computerScore  < 5){
+   // loop to get both choices and validate the human choice.
+while(humanScore < 5 && computerScore  < 5){
 
     let playerChoice= getPlayerChoice();
     if (playerChoice==null) {
@@ -88,5 +89,5 @@ console.log("Computer Score: " + computerScore);
 }
 
 
-
+playButton.addEventListener("click", playGame);
 
