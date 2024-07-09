@@ -4,16 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="rps.js" defer></script>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
     
 
-    <button id="playButton" type="button">Play Game!</button>
+    <button id="playButton" type="button">Play Round!</button>
+
+<div class="container">
+    <div class="selectors">
+
+     <button class="btn-selector" data-option="Piedra">Piedra</button>
+        <button class="btn-selector" data-option="Papel">Papel</button>
+        <button class="btn-selector" data-option="Tijeras">Tijeras</button>
+    
 
 
 
-    <script src="rps.js"></script>
+</div>
+<p id="beats">
+    <div class="content">
+        <p class="humanChoice"></p>
+        <p class="computerChoice"></p>
+        
+        
+        <div class="results">
+           <p class="scores">
+            
+            </p>
+        </div>
+</div>
+
+
+</div>
+
+    
 </body>
 </html>
