@@ -44,16 +44,24 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-let scores= document.querySelector(".scores");
+//Player and Computer scores (query)
+let pScore =document.querySelector(".playerScore")
+let cScore= document.querySelector(".computerScore");
+
+// Mostrar los scores iniciales en pantalla
+pScore.textContent = "Your Score: " + humanScore;
+cScore.textContent = "   \n Computer Score: " + computerScore;
+
 async function playGame() {
+    alert("Select (Rock, Paper or Scissors!)");
     while (humanScore < 5 && computerScore < 5) {
         const playerChoice = await getPlayerChoice();
         const computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
         console.log("Human Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
-        scores.textContent = "Human Score: " + humanScore;
-        scores.textContent += " \n Computer Score: " + computerScore;
+        pScore.textContent = "Your Score: " + humanScore;
+        cScore.textContent = "   \n Computer Score: " + computerScore;
 
     }
 
@@ -67,5 +75,10 @@ async function playGame() {
     humanScore = 0;
     computerScore = 0;
 }
+function reload(){
+location.reload();
+
+}
+document.querySelector("#reload").addEventListener("click", reload);
 
 document.getElementById("playButton").addEventListener("click", playGame);

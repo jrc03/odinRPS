@@ -6,24 +6,34 @@ justify-content: center;
 font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#playButton{
-border-radius: 8px;
-border: 2px solid black;
-background-color: #01BAEF;
-display: flex;
-justify-content: center;
-align-items: center;
-    height:50px;
-width: 200px;
-padding: 20px;
-margin: 20px;
-
+.mainButtonsCont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
 }
+
+
+
+.mainButton{
+    border-radius: 8px;
+    border: #508D4E;
+    background-color: #508D4E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        height:50px;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    
+    }
 
 .selectors{
 padding: 20px;
 display: flex;
-border: 2px solid black;
+
 height: 200px;
 width: 90%;
 justify-content: space-between;
@@ -37,44 +47,66 @@ width: 150px;
 padding: 20px;
 margin: 20px;
 border-radius: 10px;
-border: 2px solid #478CCF;
-background-color: #478CCF;
+border: 2px solid #1A5319;
+background-color: #1A5319;
 
 }
 #beats{
 display: flex;
-border: 2px solid black;
+justify-content: center;
+align-items: center;
     flex-direction: column;
+    font-weight: 400;
    width: 80%;
 }
 .container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
+    border: 3px solid black;
+    border-radius: 8px;
+    padding: 20px;
 align-items: center;
-    border: 2px solid black;
+background-color: #80AF81;
+color:white;
+font-weight: 600;
+    
 
 }
 .content{
 display: flex;
 flex-direction: row;
-border: 2px solid black;
-width: 90%;
+
+width: 70%;
 justify-content: center;
-
-
+font-weight: 400;
+border: 2px solid black;
 gap: 70px;
 
 }
 .results{
 display: flex;
-flex-direction: column;
+flex-direction: row;
+justify-content: center;
+gap: 100px;
+border: 2px solid black;
+width: 70%;
 
 }
+.scores{
+    display: flex;
+    flex-direction: row;
+   
+   
+}
 
+button{
+color: white;
+font-weight: 700;
+
+}
 button:hover{
 cursor: pointer;
-background-color: #61E8E1;
+background-color: #508D4E;
 
 }
